@@ -1,0 +1,46 @@
+<odoo>
+    <template id="coffee_shop_temp" name="Nesco Products">
+        <t t-call="website.layout"> <!-- This will use the default website layout -->
+            <div class="container">
+                <h1>Nesco Coffee Shop Management</h1>
+                <br/>
+                <h2>Nesco Products</h2>
+                <ul>
+                    <t t-if="error_message">
+                        <div class="alert alert-warning">
+                            <t t-esc="error_message"/>
+                        </div>
+                    </t>
+                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+<!--                            <th>Description</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through the courses and display them -->
+                        <t t-set="index" t-value="1"/>
+                        <t t-foreach="my_products" t-as="product">
+
+                            <tr>
+                                <td>
+                                    <t t-esc="index"/>
+                                    <t t-set="index" t-value="index+1"/>
+                                </td> <!-- Display index number -->
+                                <td>
+                                    <t t-esc="product.name"/>
+                                </td>
+                                <td>
+<!--                                    <t t-esc="product.deatiled_type"/>-->
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <template id="create_submit_product_temp" name="Create Nesco Product">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h2>Create New Product</h2>
+                <form action="/submit/product" method="post" class="needs-validation">
+                    <!--validate the form submission -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Product Name</label>
+                        <input type="text" id="product_name" name="name" class="form-control"/>
+                        <div class="invalid-feedback">Please enter a product name.</div>
+                    </div>
+
+<!--                    <div class="mb-3">-->
+<!--                        <label for="deatiled_type" class="form-label">Product Type</label>-->
+<!--                        <textarea id="deatiled_type" name="deatiled_type" class="form-control" rows="4"/>-->
+<!--                    </div>-->
+
+                    <button type="submit" class="btn btn-primary">Create Product</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>
