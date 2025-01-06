@@ -11,6 +11,8 @@ class CoffeeShop(http.Controller):
     def list_products(self, **kwargs):
         # get all the products from the product table
         products = request.env['product.template'].sudo().search([])
+        # Calculate total sales
+        total_sales = sum(request.env['sale.order'].search([('state', '=', 'sale')]).mapped('amount_total'))
         # Check if no products are found
         if not products:
             # Render a template for no products or pass a message to the existing template
@@ -22,6 +24,7 @@ class CoffeeShop(http.Controller):
         # if products are found pass data to the template
         return request.render('nesco.coffee_shop_temp', {
             'my_products': products,
+            'total_sales': total_sales,
             'error_message': False  # No error, so no message
         })
 

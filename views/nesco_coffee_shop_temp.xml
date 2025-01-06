@@ -17,7 +17,7 @@
                         <tr>
                             <th>#</th>
                             <th>Product Name</th>
-<!--                            <th>Description</th>-->
+                            <!--                            <th>Total Sale amount</th>-->
                         </tr>
                     </thead>
                     <tbody>
@@ -34,12 +34,23 @@
                                     <t t-esc="product.name"/>
                                 </td>
                                 <td>
-<!--                                    <t t-esc="product.deatiled_type"/>-->
+
+                                    <!--                                    <t t-esc="product.deatiled_type"/>-->
                                 </td>
                             </tr>
                         </t>
                     </tbody>
                 </table>
+                <!-- -->
+                <div class="mt-5">
+                    <h2>Total Sales</h2>
+                    <p class="lead">The total confirmed sales for the coffee shop are:
+                        <strong>
+                            <t t-esc="total_sales"/>
+                            USD
+                        </strong>
+                    </p>
+                </div>
             </div>
         </t>
     </template>
