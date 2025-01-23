@@ -50,3 +50,7 @@ I welcome contributions to Nesco! Whether it's improving documentation, adding n
 ## Connect With me
 
 - [Huzaifa Elnaeem](https://www.linkedin.com/in/huzaifa-elnaeem-415042a6/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](link-to-license) file for details.
