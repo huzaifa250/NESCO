@@ -15,4 +15,7 @@ from the website. Include options for pickup.
 - **Point of Sale (POS) Integration:** Set up a POS system for in-store transactions, ensuring a
 seamless checkout experience.
 - **Sales Reports:** Generate sales reports to analyze daily and monthly performance.
-
+3. **Inventory Module:**
+- **Product Management:** Manage coffee products, including descriptions, pricing, and stock levels.
+- **Stock Monitoring:** Implement automatic stock level monitoring to alert when items are low,
+ensuring that popular blends are always available.
