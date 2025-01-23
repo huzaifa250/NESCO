@@ -35,3 +35,6 @@ Installation :
  
 2- Clone this repository:git clone https://github.com/huzaifa250/NESCO.git 
 
+3- Add the nesco  module to your Odoo 17 addons path
+
+4- Update the Odoo module list and install the nesco module
