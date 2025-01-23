@@ -45,7 +45,7 @@ For detailed installation instructions, please refer to the [documentation](http
 
 ## Contributing :
 
-I welcome contributions to Nesco! Whether it's improving documentation, adding new features, or reporting bugs, your help is appreciated. Please see our [contributing guidelines](link-to-contributing) for more information.
+I welcome contributions to Nesco! Whether it's improving documentation, adding new features, or reporting bugs, your help is appreciated. Please see my [contributing guidelines](link-to-contributing) for more information.
 
 ## Connect With me
 
