@@ -11,3 +11,8 @@ An integrated system to enhance both customer engagement and operational efficie
 showcases the menu, coffee blends, and special offers and coffee bags for sales.
 - **Online Ordering System:** Allows customers to place orders directly
 from the website. Include options for pickup.
+2. **Sales Module:**
+- **Point of Sale (POS) Integration:** Set up a POS system for in-store transactions, ensuring a
+seamless checkout experience.
+- **Sales Reports:** Generate sales reports to analyze daily and monthly performance.
+
