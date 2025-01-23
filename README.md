@@ -38,3 +38,5 @@ Installation :
 3- Add the nesco  module to your Odoo 17 addons path
 
 4- Update the Odoo module list and install the nesco module
+
+![Screenshot of the application](images/project_img1.jpeg)
