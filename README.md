@@ -41,4 +41,4 @@ Installation :
 
 ![Screenshot of the application](images/project_img1.jpeg)
 
-For detailed installation instructions, please refer to our [documentation](https://www.odoo.com/documentation/17.0/).
+For detailed installation instructions, please refer to the [documentation](https://www.odoo.com/documentation/17.0/).
