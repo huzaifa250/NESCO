@@ -42,3 +42,11 @@ Installation :
 ![Screenshot of the application](images/project_img1.jpeg)
 
 For detailed installation instructions, please refer to the [documentation](https://www.odoo.com/documentation/17.0/).
+
+## Contributing :
+
+I welcome contributions to Nesco! Whether it's improving documentation, adding new features, or reporting bugs, your help is appreciated. Please see our [contributing guidelines](link-to-contributing) for more information.
+
+## Connect With me
+
+- [Huzaifa Elnaeem](https://www.linkedin.com/in/huzaifa-elnaeem-415042a6/)
