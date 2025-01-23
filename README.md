@@ -23,6 +23,11 @@ ensuring that popular blends are always available.
 Current Technical Challenge :
 
 I suppose if we face credentials problem on the exsisting payment mentod or ex we want to add
-a new provider which does not provided by odoo.
-Solution : I'm testing avialbe provider some are work well also we can add extranal provider by using 
+a new provider which does not provided by odoo also the loading traffic may increase which can affect on system.
+Solution : 
+- I'm testing avialbe provider some are work well also we can add extranal provider by using 
 odoo JSON/RPC Api or extranl API.
+- I can Implemnt or configure odoo with Nginx.Whcih could work as reverse proxy,caching,load balancing.
+
+
+
