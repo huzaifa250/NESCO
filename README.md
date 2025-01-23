@@ -29,5 +29,9 @@ Solution :
 odoo JSON/RPC Api or extranl API.
 - I can Implemnt or configure odoo with Nginx.Whcih could work as reverse proxy,caching,load balancing.
 
+Installation :
 
+1- Install Odoo 17 on your server following the [official documentation](https://www.odoo.com/documentation/17.0/administration/on_premise.html)
+ 
+2- Clone this repository:git clone https://github.com/huzaifa250/NESCO.git 
 
