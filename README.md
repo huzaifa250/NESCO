@@ -19,7 +19,9 @@ seamless checkout experience.
 - **Product Management:** Manage coffee products, including descriptions, pricing, and stock levels.
 - **Stock Monitoring:** Implement automatic stock level monitoring to alert when items are low,
 ensuring that popular blends are always available.
+
 Current Technical Challenge :
+
 I suppose if we face credentials problem on the exsisting payment mentod or ex we want to add
 a new provider which does not provided by odoo.
 Solution : I'm testing avialbe provider some are work well also we can add extranal provider by using 
