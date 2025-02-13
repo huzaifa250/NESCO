@@ -11,6 +11,7 @@ class CoffeeShop(http.Controller):
     def list_products(self, **kwargs):
         # get all the products from the product table
         products = request.env['product.template'].sudo().search([])
+        # desc = request.env['sale.order.line'].search([])
         # Calculate total sales
         total_sales = sum(request.env['sale.order'].search([('state', '=', 'sale')]).mapped('amount_total'))
         # Check if no products are found
@@ -24,6 +25,7 @@ class CoffeeShop(http.Controller):
         # if products are found pass data to the template
         return request.render('nesco.coffee_shop_temp', {
             'my_products': products,
+            'list_price': products.mapped('list_price'),
             'total_sales': total_sales,
             'error_message': False  # No error, so no message
         })
@@ -44,7 +46,6 @@ class CoffeeShop(http.Controller):
             f"Received data: name={name}")
         product = request.env['product.template'].sudo().create(
             {'name': name,
-             # 'deatiled_type': deatiled_type or '',
              })
         # print("Name is *************** ", name)
         _logger.info(f"product created: {product}")

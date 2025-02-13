@@ -25,11 +25,12 @@ It's web application
         'security/ir.model.access.csv',
         'views/nesco_coffee_shop_temp.xml',
         'views/create_submit_product_temp.xml',
-        'views/views.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'application': True,
+    'auto_install': False,
 }
