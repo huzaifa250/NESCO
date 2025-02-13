@@ -39,7 +39,7 @@ Installation :
 
 4- Update the Odoo module list and install the nesco module
 
-![Screenshot of the application](images/project_img1.jpeg)
+![Screenshot of the application](images/proj_pic.jpeg)
 
 For detailed installation instructions, please refer to the [documentation](https://www.odoo.com/documentation/17.0/).
 
