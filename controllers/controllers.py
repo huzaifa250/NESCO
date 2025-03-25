@@ -55,9 +55,9 @@ class CoffeeShop(http.Controller):
         # Redirect or render a success page after creation
         return request.redirect('/products')
 
-    @http.route('/update/product/form', type='http', auth='user', website=True, csrf=True)
-    def update_product_form(self, **kwargs):
-        return request.render("nesco.update_product_temp")
+    # @http.route('/update/product/form', type='http', auth='user', website=True, csrf=True)
+    # def update_product_form(self, **kwargs):
+    #     return request.render("nesco.update_product_temp")
 
     @http.route('/update/product', type='http', auth='user', website=True, csrf=True)
     def update_product(self, **kwargs):
