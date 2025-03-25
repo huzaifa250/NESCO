@@ -3,7 +3,7 @@ NESCO Coffee Shop :
 A comprehensive management system for a coffee shop using Odoo, focusing on
 three main modules: Website, Sales, and Inventory.
 The coffee shop aims to provide a seamless online experience for customers to
-browse the menu, place orders and searh for specific product.
+browse the menu, place orders(create new), update and searh for specific product.
 An integrated system to enhance both customer engagement and operational efficiency.
 **Key Features:**
 * 1. **Website Module:**
@@ -26,8 +26,8 @@ I suppose if we face credentials problem on the exsisting payment mentod or ex w
 a new provider which does not provided by odoo also the loading traffic may increase which can affect on system.
 Solution : 
 - I'm testing avialbe provider some are work well also we can add extranal provider by using 
-odoo JSON/RPC Api or extranl API.
-- I can Implemnt or configure odoo with Nginx.Whcih could work as reverse proxy,caching,load balancing.
+odoo JSON/RPC Api or extranl API such as REST API.
+- I can Implement or configure odoo with Nginx.Whcih could work as reverse proxy,caching,load balancing.
 
 Installation :
 
