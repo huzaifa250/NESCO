@@ -25,7 +25,8 @@ It's web application
         'security/ir.model.access.csv',
         'views/nesco_coffee_shop_temp.xml',
         'views/create_submit_product_temp.xml',
-        # 'views/templates.xml',
+        'views/update_product_template.xml',
+        # 'views/dashboard_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,25 @@
+<odoo>
+    <template id="update_product_temp">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Update Product</h1>
+                <t t-if="error_message">
+                    <div class="alert alert-danger" t-esc="error_message"/>
+                </t>
+                <form action="/update/product" method="post">
+                    <!-- Add CSRF Token -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label>Product ID</label>
+                        <input type="text" name="product_id" class="form-control" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label>New Name</label>
+                        <input type="text" name="name" class="form-control" required="required"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Product</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -2,6 +2,8 @@
 from odoo import http
 from odoo.http import request
 import logging
+from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -52,3 +54,34 @@ class CoffeeShop(http.Controller):
         # _logger.error(f"Error creating product:")
         # Redirect or render a success page after creation
         return request.redirect('/products')
+
+    @http.route('/update/product/form', type='http', auth='user', website=True, csrf=True)
+    def update_product_form(self, **kwargs):
+        return request.render("nesco.update_product_temp")
+
+    @http.route('/update/product', type='http', auth='user', website=True, csrf=True)
+    def update_product(self, **kwargs):
+        try:
+            product_id = kwargs.get('product_id')
+            new_name = kwargs.get('name')
+
+            if not product_id or not new_name:
+                raise UserError("Product ID and new name are required.")
+
+            product_id = int(product_id)
+            product = request.env['product.template'].sudo().browse(product_id)
+            if not product.exists():
+                raise UserError("Product not found.")
+
+            product.write({'name': new_name})
+            return request.redirect('/products')
+        except (UserError, ValueError) as e:
+            _logger.error(f"Update error: {e}")
+            return request.render("nesco.update_product_temp", {
+                'error_message': str(e)
+            })
+        except Exception as e:
+            _logger.error(f"Unexpected error: {e}")
+            return request.render("nesco.update_product_temp", {
+                'error_message': 'An error occurred during update.!'
+            })
