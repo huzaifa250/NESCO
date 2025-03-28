@@ -1,0 +1,20 @@
+<odoo>
+    <template id="delete_product_temp">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Delete Product</h1>
+                <t t-if="error_message">
+                    <div class="alert alert-danger" t-esc="error_message"/>
+                </t>
+                <form action="/delete/product" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label>Product ID</label>
+                        <input type="text" name="product_id" class="form-control" required="required"/>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Delete Product</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

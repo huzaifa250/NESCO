@@ -42,7 +42,6 @@ class CoffeeShop(http.Controller):
     def submit_product(self, **kwargs):
         # allow users to create product
         name = kwargs.get('name')  # product name
-        # deatiled_type = kwargs.get('deatiled_type')  # optional
         # Log the received data
         _logger.info(
             f"Received data: name={name}")
@@ -71,7 +70,7 @@ class CoffeeShop(http.Controller):
             product_id = int(product_id)
             product = request.env['product.template'].sudo().browse(product_id)
             if not product.exists():
-                raise UserError("Product not found.")
+                raise UserError("Product not found!")
 
             product.write({'name': new_name})
             return request.redirect('/products')
@@ -82,6 +81,35 @@ class CoffeeShop(http.Controller):
             })
         except Exception as e:
             _logger.error(f"Unexpected error: {e}")
-            return request.render("nesco.update_product_temp", {
-                'error_message': 'An error occurred during update.!'
+            return request.redirect('/products')
+
+    @http.route('/delete/product', type='http', auth='user', website=True, csrf=True)
+    def delete_product(self, **kwargs):
+        try:
+            # Get product_id from form submission
+            product_id = kwargs.get('product_id')
+            if not product_id:
+                raise UserError("Product ID is required !")
+
+            product_id = int(product_id)
+            product = request.env['product.template'].sudo().browse(product_id)
+
+            if not product.exists():
+                raise UserError("Product not found.")
+
+            # For safety, soft delete (archive)
+            # product.write({'active': False})
+
+            # permanently delete (use cautiously)
+            product.unlink()
+
+            return request.redirect('/products')
+
+        except (UserError, ValueError) as e:
+            _logger.error(f"Deletion error: {e}")
+            return request.render("nesco.delete_product_temp", {
+                'error_message': str(e)
             })
+        except Exception as e:
+            _logger.error(f"Unexpected error: {e}")
+            return request.redirect('/products')

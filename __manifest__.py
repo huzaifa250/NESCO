@@ -26,6 +26,7 @@ It's web application
         'views/nesco_coffee_shop_temp.xml',
         'views/create_submit_product_temp.xml',
         'views/update_product_template.xml',
+        'views/delete_product_template_view.xml',
         # 'views/dashboard_templates.xml',
     ],
     # only loaded in demonstration mode
