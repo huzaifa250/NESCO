@@ -22,7 +22,7 @@ ensuring that popular blends are always available.
 
 Current Technical Challenge :
 
-I suppose if we face credentials problem on the exsisting payment mentod or ex we want to add
+I suppose if we face credentials problem on the exsisting payment method or ex we want to add
 a new provider which does not provided by odoo also the loading traffic may increase which can affect on system.
 Solution : 
 - I'm testing avialbe provider some are work well also we can add extranal provider by using 
