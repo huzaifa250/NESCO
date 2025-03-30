@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import http
+
+
+from odoo import http, fields
 from odoo.http import request
 import logging
 from odoo.exceptions import ValidationError
@@ -13,7 +15,26 @@ class CoffeeShop(http.Controller):
     def list_products(self, **kwargs):
         # get all the products from the product table
         products = request.env['product.template'].sudo().search([])
-        # desc = request.env['sale.order.line'].search([])
+        current_time = fields.Datetime.now()
+
+        # Prepare product data with remaining time calculation
+        processed_products = []
+
+        for product in products:
+            remaining = 0
+            if not product.active and product.write_date:
+                write_date = fields.Datetime.from_string(product.write_date)
+                time_diff = current_time - write_date
+                remaining = max(0, 60 - int(time_diff.total_seconds() // 60))
+            processed_products.append({
+                'id': product.id,
+                'name': product.name,
+                'active': product.active,
+                'list_price': product.list_price,
+                # 'currency': currency.symbol,
+                'remaining_minutes': remaining
+            })
+
         # Calculate total sales
         total_sales = sum(request.env['sale.order'].search([('state', '=', 'sale')]).mapped('amount_total'))
         # Check if no products are found
@@ -27,7 +48,9 @@ class CoffeeShop(http.Controller):
         # if products are found pass data to the template
         return request.render('nesco.coffee_shop_temp', {
             'my_products': products,
-            'list_price': products.mapped('list_price'),
+            'products_data': processed_products,
+            # 'list_price': product.list_price,
+            # 'list_price': products.mapped('list_price'),
             'total_sales': total_sales,
             'error_message': False  # No error, so no message
         })
@@ -53,10 +76,6 @@ class CoffeeShop(http.Controller):
         # _logger.error(f"Error creating product:")
         # Redirect or render a success page after creation
         return request.redirect('/products')
-
-    # @http.route('/update/product/form', type='http', auth='user', website=True, csrf=True)
-    # def update_product_form(self, **kwargs):
-    #     return request.render("nesco.update_product_temp")
 
     @http.route('/update/product', type='http', auth='user', website=True, csrf=True)
     def update_product(self, **kwargs):
