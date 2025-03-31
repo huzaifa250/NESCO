@@ -15,25 +15,6 @@ class CoffeeShop(http.Controller):
     def list_products(self, **kwargs):
         # get all the products from the product table
         products = request.env['product.template'].sudo().search([])
-        current_time = fields.Datetime.now()
-
-        # Prepare product data with remaining time calculation
-        processed_products = []
-
-        for product in products:
-            remaining = 0
-            if not product.active and product.write_date:
-                write_date = fields.Datetime.from_string(product.write_date)
-                time_diff = current_time - write_date
-                remaining = max(0, 60 - int(time_diff.total_seconds() // 60))
-            processed_products.append({
-                'id': product.id,
-                'name': product.name,
-                'active': product.active,
-                'list_price': product.list_price,
-                # 'currency': currency.symbol,
-                'remaining_minutes': remaining
-            })
 
         # Calculate total sales
         total_sales = sum(request.env['sale.order'].search([('state', '=', 'sale')]).mapped('amount_total'))
@@ -48,8 +29,7 @@ class CoffeeShop(http.Controller):
         # if products are found pass data to the template
         return request.render('nesco.coffee_shop_temp', {
             'my_products': products,
-            'products_data': processed_products,
-            # 'list_price': product.list_price,
+            'list_price': products.mapped('list_price'),
             # 'list_price': products.mapped('list_price'),
             'total_sales': total_sales,
             'error_message': False  # No error, so no message
